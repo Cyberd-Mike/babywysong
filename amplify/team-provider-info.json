@@ -1,22 +1,43 @@
 {
-    "preprod": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-babywysong-preprod-145123-authRole",
-            "UnauthRoleArn": "arn:aws:iam::752297506265:role/amplify-babywysong-preprod-145123-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::752297506265:role/amplify-babywysong-preprod-145123-authRole",
-            "Region": "us-west-2",
-            "DeploymentBucketName": "amplify-babywysong-preprod-145123-deployment",
-            "UnauthRoleName": "amplify-babywysong-preprod-145123-unauthRole",
-            "StackName": "amplify-babywysong-preprod-145123",
-            "StackId": "arn:aws:cloudformation:us-west-2:752297506265:stack/amplify-babywysong-preprod-145123/87bdcc10-0c03-11eb-a732-0651c45e58ae",
-            "AmplifyAppId": "d2cojixxfrffn6"
+  "production": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-babywysong-production-54335-authRole",
+      "UnauthRoleArn": "arn:aws:iam::752297506265:role/amplify-babywysong-production-54335-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::752297506265:role/amplify-babywysong-production-54335-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-babywysong-production-54335-deployment",
+      "UnauthRoleName": "amplify-babywysong-production-54335-unauthRole",
+      "StackName": "amplify-babywysong-production-54335",
+      "StackId": "arn:aws:cloudformation:us-west-2:752297506265:stack/amplify-babywysong-production-54335/3406ac20-0de0-11eb-97b4-064fbe1c973c",
+      "AmplifyAppId": "d2cojixxfrffn6"
+    },
+    "categories": {
+      "auth": {
+        "babywysongauth": {
+          "hostedUIProviderCreds": "[]"
         },
-        "categories": {
-            "auth": {
-                "babywysongauth": {
-                    "hostedUIProviderCreds": "[]"
-                }
-            }
-        }
+        "userPoolGroups": {}
+      }
     }
+  },
+  "preprod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-babywysong-preprod-145123-authRole",
+      "UnauthRoleArn": "arn:aws:iam::752297506265:role/amplify-babywysong-preprod-145123-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::752297506265:role/amplify-babywysong-preprod-145123-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-babywysong-preprod-145123-deployment",
+      "UnauthRoleName": "amplify-babywysong-preprod-145123-unauthRole",
+      "StackName": "amplify-babywysong-preprod-145123",
+      "StackId": "arn:aws:cloudformation:us-west-2:752297506265:stack/amplify-babywysong-preprod-145123/87bdcc10-0c03-11eb-a732-0651c45e58ae",
+      "AmplifyAppId": "d2cojixxfrffn6"
+    },
+    "categories": {
+      "auth": {
+        "babywysongauth": {
+          "hostedUIProviderCreds": "[]"
+        }
+      }
+    }
+  }
 }

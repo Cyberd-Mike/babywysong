@@ -95,15 +95,15 @@
         },
      
     
-        "ITGroup": {
+        "AWSAdminsGroup": {
           "Type" : "AWS::Cognito::UserPoolGroup",
           "Properties" : {
-              "GroupName" : "IT",
+              "GroupName" : "AWSAdmins",
               "Precedence" : 2,
               
               "RoleArn" : {
                 "Fn::GetAtt": [
-                    "ITGroupRole",
+                    "AWSAdminsGroupRole",
                     "Arn"
                 ]
               },
@@ -114,7 +114,7 @@
             }
         },
         
-        "ITGroupRole": {
+        "AWSAdminsGroupRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName":{
@@ -124,7 +124,7 @@
                           {
                             "Ref": "authbabywysongauthUserPoolId"
                           },
-                          "-ITGroupRole"
+                          "-AWSAdminsGroupRole"
                         ]
                     ]
                 },
@@ -360,10 +360,10 @@
         },
         
       
-        "ITGroupRole": {
+        "AWSAdminsGroupRole": {
             "Value": {
                 "Fn::GetAtt": [
-                    "ITGroupRole",
+                    "AWSAdminsGroupRole",
                     "Arn"
                 ]
             }

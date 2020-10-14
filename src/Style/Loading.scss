@@ -1,0 +1,104 @@
+// ----- Base ----- //
+
+$bg-color: #EEECEC;
+$fg-color: #E4C7C9;
+
+// ----- Animation ----- //
+
+$anim-duration: 2.5s;
+$anim-timing-function: cubic-bezier(0.750, 0.000, 0.500, 1.000);
+$anim-iteration-count: infinite;
+$anim-direction: normal;
+
+// ----- @mixin ----- //
+
+@mixin animation($name){
+  animation: $name $anim-duration $anim-timing-function $anim-iteration-count $anim-direction;}
+
+@mixin pink{
+  width: 1em;
+  height: 1em;
+  border: 1px solid $fg-color;
+  background-color: $fg-color;}
+
+// ----- Style ----- //
+
+loading {
+  position: absolute;
+  content: '';
+  font-size: 64px;
+  background-color: $bg-color;
+  left: 50%;
+  top: 50%;
+  transform: translate(-100%, -240%);}
+
+heart {
+  @include animation(heart);
+  top: 50%;
+  content: '';
+  left: 50%;
+  position: absolute;}  
+
+.heartL{
+  @include animation(heartL);
+  @include pink;
+  content: '';
+  position: absolute;
+  display: block;
+  transform: translate(-29px, -28px); 
+  border-radius: 100%;}
+
+.heartR{
+  @include animation(heartR);
+  @include pink;
+  content: '';
+  position: absolute;
+  display: block;
+  transform: translate(29px, -28px);
+  border-radius: 100%;}
+
+.square {
+  @include animation(square);
+  @include pink;
+  transform: scale(1) rotate(-45deg); 
+  position: relative;
+  display: block;
+  content: '';}
+
+shadow {
+  @include animation(shadow);
+  top: 100px;
+  left: 50%;
+  content: '';
+  position: relative; 
+  display: block;
+  bottom: -.5em;
+  width: 1em;
+  height: .25em;
+  border-radius: 50%;
+  background-color: darken($bg-color, 15%);
+  border: 1px solid darken($bg-color, 15%);}
+
+// ----- Animations ----- //
+
+@keyframes square {
+  50% { 
+    border-radius: 100%;
+    transform: scale(.5) rotate(-45deg);}
+  100% {
+    transform: scale(1) rotate(-45deg);}}
+
+@keyframes heart{
+  50%  {transform: rotate(360deg);}
+  100% {transform: rotate(720deg);}}
+
+@keyframes heartL {
+  60%{transform: scale(0.4);}}
+
+@keyframes heartR {
+  40%{transform: scale(0.4);}}
+
+@keyframes shadow {  
+  50% { 
+    transform: scale(.5);
+    border-color: darken($bg-color, 10%);}}

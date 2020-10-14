@@ -1,0 +1,14 @@
+type Guest @model
+@auth(rules: [ 
+	{ allow: groups, groups: ["admins"], operations: [ create, read, update, delete ] },
+	{ allow: public, operations: [read, update] }
+	])
+{
+	id: ID!
+	lastName: String!
+	firstName: String!
+	phoneNumber: String
+	timeStart: AWSTime
+	timeEnd: AWSTime
+	isAttending: Boolean 
+}

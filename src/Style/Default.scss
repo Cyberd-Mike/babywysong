@@ -1,0 +1,137 @@
+// Font Imports
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+// Theme Declarations
+$Base-Green: #2D5151;
+$Base-Eggshell: #EEECEC;
+$Base-Pink: #E4C7C9;
+
+// Fancy Fonts
+$Parisienne: 'Parisienne', cursive;
+$Petit-Formal-Script: 'Petit Formal Script', cursive;
+$Open-Sans: 'Open Sans', sans-serif;
+
+// Font Weights
+$light: 300;
+$normal: 400;
+$semibold: 500;
+$bold: 700;
+
+// General
+html,
+body {
+    overflow-x: hidden;
+    --webkit-text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+h1 {
+    font-family: $Parisienne;
+    font-size: 5em;
+}
+h2 {
+    font-family: $Parisienne;
+    font-size: 3em;
+}
+h3 {
+    font-family: $Open-Sans;
+}
+h4 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+p {
+    font-family: $Open-Sans;
+}
+
+// Toolbar
+.Toolbar_Desktop{
+    min-height: 75px;
+    margin-bottom: 20px;
+}
+
+a.Navigation_Link {
+    text-decoration: none;
+    color:  white;
+    font-size: 1.2em;
+}
+
+button.Navigation_Button {
+    margin: 5px;
+    padding: 15px;
+}
+
+button.Button_ImgButton {
+    margin: 5px 0px;
+    padding: 0 10px;
+}
+// Header Box
+img.HeaderBox_SBCute {
+    width: 100%;
+    height: auto;
+    margin: 5% 0;
+    border-top: 50px solid $Base-Eggshell;
+    border-left: 50px solid $Base-Eggshell;
+}
+
+h1.InviteMain.Title {
+    font-family: $Parisienne;
+    font-size: 5em !important;
+    margin: 0;
+}
+
+h1.InviteMain.Baby {
+    transform: translateX(-30px);
+}
+
+h1.InviteMain.Title.Shower {
+    transform: translateX(30px);
+}
+
+h2.InviteMain.Names {
+    font-family: $Parisienne;
+    font-size: 2em !important;
+    margin: .25em;
+}
+
+h3.InviteMain.Names.Ampersand {
+    font-family: $Parisienne;
+    font-size: 2em !important;
+    margin: .25em;
+}
+
+p.InviteMain.Subtitle {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: .85em;
+    margin: .25em;
+}
+
+// LinkBox
+img.Background_Decobar {
+    // position: absolute;
+    width: 100%;
+    max-height: 250px;
+    transform: scaleX(3) translateX(25vw);
+}
+
+img.Fluff_Image {
+    max-height: 600px;
+    margin: 5% 10%;
+    border-right: 50px solid #2D5151;
+    border-bottom: 50px solid #2D5151;
+}
+
+//The one below is for the "so little so loved" thing.
+img.Fluffbox_Image {
+    height: 300px;
+    width: auto;
+    padding: 20%;
+}
+
+#LinkBox {
+    margin: 5% 0;
+}

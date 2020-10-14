@@ -122,6 +122,8 @@ export default function(){
 
                     const Start = StartStr.substring(0, StartStr.length - 3);
                     const End = EndStr.substring(0, EndStr.length - 3);
+                    
+                    if (isAttending === undefined){ isAttending === false}
 
                     const guestDetails = {
                         lastName: lastName, 

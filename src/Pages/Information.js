@@ -9,16 +9,6 @@ import { Helmet } from 'react-helmet';
 import Iframe from 'react-iframe';
 
 export default function(){
-    const [mapImage, setMapImage] = useState('');
-
-    useEffect(() => {
-        getImages();
-    }, [])
-        
-    const getImages = async() => {
-        const i1 = await Storage.get('Map_Final.png', {level: 'public'})
-        setMapImage(i1);
-    }
 
     return(
         <Fragment>

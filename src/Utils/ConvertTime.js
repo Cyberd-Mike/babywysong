@@ -8,7 +8,7 @@ export default function convertTime(time) {
     if (hour >= 12){
         h = hour - 12;
         xm = "pm";    
-    } else if (h == 0) {
+    } else if (h === 0) {
         h = 12;
         xm = "m"
     } else {

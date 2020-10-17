@@ -10,23 +10,19 @@ import RSVPRoot from '../Pages/rsvp_Root';
 import Registry from '../Pages/Registry';
 import Information from '../Pages/Information';
 import PageNotFound from '../Pages/statuspages/404';
-// import Loading from '../Pages/statuspages/loading';
+import RSVPConfirm from '../Pages/rsvp_confirm';
 import Attending from '../Pages/rsvp_isAttending';
 import NotAttending from '../Pages/rsvp_notAttending';
 import AdminDashboard from '../Pages/Admin/Console';
 
 export default function(){
-
-    // const AdminDashboard = Loadable({
-    //     loader: () => import('../Pages/Admin/Console'),
-    //     loading: Loading,
-    // });
-
     return(
         <Router>
             <Home path="/" />
             <RSVPRoot path="/">
-                <RSVP path="rsvp" />
+                <RSVP path="rsvp" >
+                    <RSVPConfirm path="/confirm" />
+                </RSVP>
                 <NotAttending path="/respond-no" />
                 <Attending path="/respond-yes" />
             </RSVPRoot>

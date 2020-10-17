@@ -41,7 +41,9 @@ export default function(props){
                 phoneNumber: phoneNumber,
                 timeStart: timeStart,
                 timeEnd: timeEnd,
-                isAttending: boolAttend
+                isAttending: boolAttend,
+                allowPlusOne: allowPlusOne,
+                plusOne: plusOneName
             }
             console.log('RSVP data is ', rsvpData)
     
@@ -55,8 +57,7 @@ export default function(props){
             {
                 return false;
             }
-        }        
-    }
+    }        
 
     const handleSubmit = () => {     
 
@@ -122,7 +123,7 @@ export default function(props){
             return (
                 <Fragment>
                     <h3>If you would like to bring someone, please let us know their name.</h3>
-                    <TextField variant="outlined" color="primary" onChange={(e) => setPlusOne(e.target.value)}>+1 Name</TextField>
+                    <TextField variant="outlined" color="primary" onChange={(e) => setPlusOneName(e.target.value)}>+1 Name</TextField>
                 </Fragment>
             );
         }
@@ -169,12 +170,3 @@ export default function(props){
         </React.Fragment>
     );
 }
-
-
-
-
-
-
-
-
-

@@ -7,10 +7,16 @@ export const onCreateGuest = /* GraphQL */ `
       id
       lastName
       firstName
+      altFirstName
+      altLastName
       phoneNumber
+      allowPlusOne
+      plusOne
       timeStart
       timeEnd
       isAttending
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -20,10 +26,16 @@ export const onUpdateGuest = /* GraphQL */ `
       id
       lastName
       firstName
+      altFirstName
+      altLastName
       phoneNumber
+      allowPlusOne
+      plusOne
       timeStart
       timeEnd
       isAttending
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -33,10 +45,16 @@ export const onDeleteGuest = /* GraphQL */ `
       id
       lastName
       firstName
+      altFirstName
+      altLastName
       phoneNumber
+      allowPlusOne
+      plusOne
       timeStart
       timeEnd
       isAttending
+      createdAt
+      updatedAt
     }
   }
 `;

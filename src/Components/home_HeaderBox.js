@@ -21,10 +21,10 @@ export default function(props){
 
     return(
         <Grid container direction="row" justify="center" alignItems="center">
-            <Grid item xs={6}>
+            <Grid item md={6} xs={12}>
                 <img src={image1} className="HeaderBox_SBCute" />
             </Grid>
-            <Grid item xs container direction="column"  justify="center" alignItems="center">
+            <Grid item xs container direction="column" justify="center" alignItems="center">
                 <Grid item xs={6}>
                     <h1 className="InviteMain Title Baby">Baby</h1>
                 </Grid>

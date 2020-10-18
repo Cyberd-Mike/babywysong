@@ -8,7 +8,8 @@ import {
     ButtonBase,
     Button,
     AppBar, 
-    Grid
+    Grid,
+    Box
 } from '@material-ui/core';
 import { AmplifySignOut } from '@aws-amplify/ui-react';
 
@@ -37,35 +38,37 @@ export default function(){
     return(
         <AppBar className="Toolbar_Desktop" position="static">
             <Grid container spacing={3}>
-                <Grid item>
+                <Grid item sm={2} xs={12}>
                 <ButtonBase className="Button_ImgButton">
                     <Link className="Navigation_Link" id="Home_Link" to="/">
                         <img src={require('../Images/iag_par.png')} className="HeaderImage_IAG" alt="Homepage_Link" />
                     </Link>
                 </ButtonBase>
                 </Grid>
-                <Grid item xs={12} sm container justify="flex-end" alignItems="center">
-                    <Grid item>
-                        <Button className="Navigation_Button" variant="text">
-                            <Link className="Navigation_Link" to="/info">
-                                Information
-                            </Link>
-                        </Button>
-                    </Grid>
-                    <Grid item>
-                        <Button className="Navigation_Button" variant="text">
-                            <Link className="Navigation_Link" to="/rsvp">
-                                RSVP
-                            </Link>
-                        </Button>
-                    </Grid>
-                    <Grid item>
-                        <Button className="Navigation_Button" variant="text">
-                            <Link className="Navigation_Link" to="/registry">
-                                Registry
-                            </Link>
-                        </Button>
-                    </Grid>
+                <Grid item sm={10} xs={12} container justify="flex-end" alignItems="center" id="Link_Container">
+                    <Box display="flex" flexDirection="row-reverse">
+                        <Grid item>
+                            <Button className="Navigation_Button" variant="text">
+                                <Link className="Navigation_Link" to="/info">
+                                    Information
+                                </Link>
+                            </Button>
+                        </Grid>
+                        <Grid item>
+                            <Button className="Navigation_Button" variant="text">
+                                <Link className="Navigation_Link" to="/rsvp">
+                                    RSVP
+                                </Link>
+                            </Button>
+                        </Grid>
+                        <Grid item>
+                            <Button className="Navigation_Button" variant="text">
+                                <Link className="Navigation_Link" to="/registry">
+                                    Registry
+                                </Link>
+                            </Button>
+                        </Grid>
+                    </Box>
                 </Grid>
 
                 { auth === AuthState.SignedIn ? <LogoutButton /> : null }

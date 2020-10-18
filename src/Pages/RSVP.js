@@ -1,7 +1,6 @@
 // Base Modules
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { API } from 'aws-amplify';
-import { dataContext } from '../Pages/RSVP';
 import * as queries from '../graphql/queries';
 import { Helmet } from 'react-helmet';
 import { useSnackbar } from 'notistack';
@@ -17,30 +16,36 @@ export default function(){
     const [ firstName, setFirstName ] = useState('');
     const [ lastName, setLastName ] = useState('');
     const { enqueueSnackbar } = useSnackbar();
-
     const lookupGuest = async () => {
         let filter = {
-            or: [{
-                lastName: {
-                    eq: lastName
-                },
-                altLastName: {
-                    eq: lastName
-                }
-            }],
-            or: [{
-                firstName: {
-                    eq: firstName
-                },
-                altFirstName: {
-                    eq: firstName
-                }
+            and: [{
+                or: [{ lastName: {eq: lastName}},
+                    {altLastName: {eq: lastName}}            
+                ],
+                or: [{ firstName: {eq: firstName}},
+                    { altFirstName: {eq: firstName}}
+                ]
             }]
         }
-        const userCheck = await API.graphql({ query: queries.listGuests, variables: {filter: filter} })
+        const userCheck = await API.graphql({ query: queries.listGuests, variables: {filter: filter} });
+
         if (userCheck){
-            console.log('User Check response was ', userCheck);
-            navigate('rsvp/confirm', {state: { userData: userCheck }});
+            const { allowPlusOne, altFirstName, altLastName, firstName, lastName, isAttending, id, phoneNumber, plusOne, timeEnd, timeStart} = userCheck.data.listGuests.items[0];
+
+            const dataArray = {
+                allowPlusOne: allowPlusOne,
+                altFirstName: altFirstName,
+                altLastName: altLastName,
+                firstName: firstName,
+                lastName: lastName,
+                isAttending: isAttending, 
+                id: id, 
+                phoneNumber: phoneNumber,
+                plusOne: plusOne, 
+                timeEnd: timeEnd,
+                timeStart: timeStart,
+            }
+            navigate('/rsvp/confirm', {state: { userData: dataArray }});
         }
         else
         {

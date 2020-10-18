@@ -11,25 +11,8 @@ type Guest @model
 	altLastName: String
 	phoneNumber: String
 	allowPlusOne: Boolean
-	plusOne: [PlusOne] @connection(keyName: 'byGuest', fields: ["id"])
+	plusOne: String
 	timeStart: AWSTime
 	timeEnd: AWSTime
 	isAttending: Boolean 
 }
-
-type PlusOne @model
-@auth(rules: [ 
-	{ allow: groups, groups: ["admins"], operations: [ create, read, update, delete ] },
-	{ allow: public, operations: [read, update] }
-	])
-@key(name: "byGuest", fields:["guestID"])
-{
-	id: ID!
-	guestID: ID!
-	plusOneName: String
-}
-
-
-
-
-

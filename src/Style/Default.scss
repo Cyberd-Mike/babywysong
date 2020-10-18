@@ -78,6 +78,19 @@ img.HeaderBox_SBCute {
     border-left: 50px solid $Base-Eggshell;
 }
 
+@media only screen and (max-width: 959px){
+    img.HeaderBox_SBCute {
+        border: 0px;
+    }
+}
+
+@media only screen and (max-width: 599px){
+    div#Link_Container {
+        justify-content: center;
+    }
+}
+
+
 h1.InviteMain.Title {
     font-family: $Parisienne;
     font-size: 5em !important;
@@ -112,24 +125,24 @@ p.InviteMain.Subtitle {
 
 // LinkBox
 img.Background_Decobar {
-    // position: absolute;
     width: 100%;
-    max-height: 250px;
-    transform: scaleX(3) translateX(25vw);
+    position: absolute;
+    max-height: 200px;
+    height: 20vh;
+    transform: translate(25vw, 15vh);
 }
+
+//Fluff Section
 
 img.Fluff_Image {
     max-height: 600px;
-    margin: 5% 10%;
     border-right: 50px solid #2D5151;
     border-bottom: 50px solid #2D5151;
 }
 
 //The one below is for the "so little so loved" thing.
 img.Fluffbox_Image {
-    height: 300px;
-    width: auto;
-    padding: 20%;
+    width: 100%;
 }
 
 #LinkBox {

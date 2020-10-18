@@ -57,14 +57,11 @@ export default function(){
     async function getGuestList(){
         const data = await API.graphql(graphqlOperation(queries.listGuests));
         const guests = (data.data.listGuests.items);
-        console.log('Guest info is ', guests);
         setRemoteData(guests);
     }
 
     async function CreateGuest(data){
         const newGuest = await API.graphql({ query: mutations.createGuest, variables: { input: data }, authMode: 'AMAZON_COGNITO_USER_POOLS'})
-        console.log('New guest is ', newGuest);
-        console.log(JSON.stringify(newGuest));
         if (newGuest.data.createGuest !== undefined){
             return true;
         } else {
@@ -74,7 +71,6 @@ export default function(){
     
     async function UpdateGuest(data){
         const updateGuest = await API.graphql({ query: mutations.updateGuest, variables: { input: data }, authMode: 'AMAZON_COGNITO_USER_POOLS'});
-        console.log(JSON.stringify(updateGuest));
         if (updateGuest.data.updateGuest !== undefined){
             return true;
         } else {
@@ -84,15 +80,9 @@ export default function(){
 
     async function DeleteGuest(data){
         const deleteGuest = await API.graphql({ query: mutations.deleteGuest, variables: { input: data }, authMode: 'AMAZON_COGNITO_USER_POOLS'});
-        console.log(JSON.stringify(deleteGuest));
         return true;
     }
-    //TODO: Create add, update and delete buttons.
-    //      Create an "add" button so Bethany can add guests.
-    //          Steps: 
-    //              Get row data
-    //              Do actions
-    //              Reload table?
+
     return(
         <MaterialTable
             title="Manage Posts"
@@ -108,8 +98,7 @@ export default function(){
             editable={{
                 onRowAdd: newData =>
                     new Promise ((resolve, reject) => {
-                    console.log('New data is ' + JSON.stringify(newData));
-                    const { lastName, firstName, phoneNumber, isAttending, timeStart, timeEnd } = newData;
+                    const { altLastName, altFirstName, allowPlusOne, plusOne, lastName, firstName, phoneNumber, isAttending, timeStart, timeEnd } = newData;
                 
                     const strStart = timeStart.toString();
                     const strEnd = timeEnd.toString();
@@ -125,17 +114,19 @@ export default function(){
                     
                     const guestDetails = {
                         lastName: lastName, 
-                        firstName: firstName, 
+                        altLastName: altLastName,
+                        firstName: firstName,
+                        altFirstName: altFirstName,
+                        allowPlusOne: allowPlusOne,
+                        plusOne: plusOne,
                         phoneNumber: phoneNumber, 
                         timeStart: Start, 
                         timeEnd: End,
                         isAttending: isAttending
                     };
-                    console.log('Details are ', guestDetails)
                     CreateGuest(guestDetails)
                     .then((data) => {
                         if (data.createGuest !== null){
-                            console.log('Operation returned ', data);
                             enqueueSnackbar('Guest added.', {
                                 variant: 'success',
                                 anchorOrigin: {
@@ -149,7 +140,6 @@ export default function(){
                         }
                         else
                         {
-                            console.log('Operation failed', data.errors);
                             enqueueSnackbar(data.errors[0].message,{
                                 variant: 'error',
                                 anchorOrigin: {
@@ -162,7 +152,6 @@ export default function(){
                         }
                     })
                     .catch((err) => {
-                        console.log('Error creating guest ', err)
                         enqueueSnackbar(err.errors[0].message, {
                             variant: 'error',
                             anchorOrigin: {
@@ -177,16 +166,12 @@ export default function(){
                 }),
                 onRowUpdate: (newData, oldData) =>
                     new Promise((resolve, reject) => {
-                        console.log('Updating data', oldData)
-                        const { lastName, firstName, phoneNumber, isAttending, timeStart, timeEnd } = newData;
-                        console.log('Is Attending is set to ', isAttending);
+                        const { altLastName, altFirstName, allowPlusOne, plusOne, lastName, firstName, phoneNumber, isAttending, timeStart, timeEnd } = newData;
                         var Start;
                         var End;
                         if (isAttending === null || isAttending === false){
-                            console.log('Attendence was null, setting value to false')
                             var Attending = false;
                         } else {
-                            console.log('Attendance is not null, setting to true')
                             var Attending = true;
                         }
 
@@ -212,22 +197,22 @@ export default function(){
                         {
                             End = timeStart;
                         }
-
                         
                         const { id } = oldData; 
-                        console.log('id is ', id);
 
                         const guestDetails = {
                             id: id,
-                            lastName: lastName, 
+                            lastName: lastName,
+                            altLastName: altLastName,
                             firstName: firstName, 
-                            phoneNumber: phoneNumber, 
+                            altFirstName: altFirstName,
+                            phoneNumber: phoneNumber,
+                            allowPlusOne: allowPlusOne,
+                            plusOne: plusOne,
                             timeStart: Start, 
                             timeEnd: End,
                             isAttending: Attending
                         };
-
-                        console.log('Guest details are ', guestDetails);
 
                         UpdateGuest(guestDetails)
                         .then((data) => {
@@ -245,7 +230,6 @@ export default function(){
                             }
                             else
                             {
-                                console.log('Operation failed', data.errors);
                                 enqueueSnackbar(data.errors[0].message,{
                                     variant: 'error',
                                     anchorOrigin: {
@@ -272,12 +256,11 @@ export default function(){
                     }),
                 onRowDelete: oldData =>
                     new Promise((resolve, reject) => {
-                        const { firstName, lastName, id, isAttending, phoneNumber, timeEnd, timeStart, version } = oldData;
+                        const { id, version } = oldData;
                         const dataArray = {
                             id: id,
                             version: version
                         }
-                        console.log('Old data id is ', )
                         DeleteGuest(dataArray)
                         .then((data) => {
                             if (data.deleteGuest !== null){
@@ -294,7 +277,6 @@ export default function(){
                             }
                             else
                             {
-                                console.log('Operation failed', data.errors);
                                 enqueueSnackbar(data.errors[0].message,{
                                     variant: 'error',
                                     anchorOrigin: {
@@ -325,11 +307,15 @@ export default function(){
             
             columns = {[
                 {title: 'Last Name', align: 'center', field: 'lastName', type: 'string'},
+                {title: 'Alt Last Name', align: 'center', field: 'altLastName', type: 'string'},
                 {title: 'First Name', align: 'center', field: 'firstName', type: 'string'},
+                {title: 'Alt First Name', align: 'center', field: 'altFirstName', type: 'string'},
                 {title: 'Phone Number', align: 'center', field: 'phoneNumber', type: 'numeric'},
                 {title: 'Time Start', align: 'center', field: 'timeStart', type: 'time'},
                 {title: 'Time End', align: 'center', field: 'timeEnd', type: 'time'},
                 {title: 'Attending?', align: 'center', field: 'isAttending', type: 'boolean'},
+                {title: 'Allow + 1?', align: 'center', field: 'allowPlusOne', type: 'boolean'},
+                {title: 'Plus One Name', align: 'center', field: 'plusOne', type: 'string'},
                 {title: 'dbIdentifier', align: 'center', field: 'id', type: 'string', hidden: true}
             ]}
         />

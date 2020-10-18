@@ -17,15 +17,11 @@ export default function(){
 
     return(
         <Grid container direction="row" justify="center" alignItems="center" style={{backgroundColor: '#EEECEC'}}>
-            <Grid container xs={6} direction="row" justify="flex-end" alignItems="center">
-                <Grid item xs container>
+            <Grid container md={6} sm={8} xs={12} direction="row" justify="center" alignItems="center" style={{padding: '5%'}}>
                     <img src={require('../Images/slsl_par.png')} className="Fluffbox_Image" alt="Homepage_Link" />
-                </Grid>
             </Grid>
-            <Grid container xs={6} direction="row" justify="flex-end" alignItems="center">
-                <Grid item xs container>
+            <Grid container md={6} sm={8} xs={12} direction="row" justify="center" alignItems="center" style={{padding: '5%'}}>
                     <img className="Fluff_Image" src={image1} />
-                </Grid>
             </Grid>
         </Grid>
     )

@@ -1,6 +1,5 @@
 // Base Modules
-import React, {Fragment, useState, useEffect} from 'react';
-import { Storage } from 'aws-amplify';
+import React, {Fragment} from 'react';
 // UI Components
 import {
     Grid

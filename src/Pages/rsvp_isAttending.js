@@ -11,9 +11,13 @@ export default function(props){
     const createicsEvent = () => {
         var calendarStart = start.split(':');
         var calendarEnd = end.split(':')
-        
-        var calStart = [2020, 11, 8, calendarStart[0], calendarStart[1]];
-        var calEnd = [2020, 11, 8, calendarEnd[0], calendarEnd[1]];
+        const start1 = calendarStart[0];
+        const start2 = calendarStart[1];
+        const end1 = calendarStart[0];
+        const end2 = calendarEnd[1];
+
+        const calStart = [2020, 11, 8, start1, start2];
+        const calEnd = [2020, 11, 8, end1, end2];
 
         const data = {
             start: calStart,

@@ -12,8 +12,8 @@ export default function(props){
         var calendarStart = start.split(':');
         var calendarEnd = end.split(':')
         
-        var calStart = [2020, 11, 8, calendarStart[0], calendarStart[1]]
-        var calEnd = [2020, 11, 8, calendarEnd[0], calendarEnd[1]]
+        var calStart = [2020, 11, 8, calendarStart[0], calendarStart[1]];
+        var calEnd = [2020, 11, 8, calendarEnd[0], calendarEnd[1]];
 
         const data = {
             start: calStart,
@@ -36,7 +36,7 @@ export default function(props){
                     <p className="Signature">Bethany + Shaun</p>
                 </Grid>
                 <Grid item xs={12}>
-                    <Button className="calendarButton" color="primary" variant="outlined" onClick={() => createicsEvent()}>Download Reminder</Button>
+                    <Button className="calendarButton" color="primary" variant="filled" onClick={() => createicsEvent()}>Download Reminder</Button>
                 </Grid>
                 <Grid item xs={12}>
                     <Link to="/rsvp" className="RSVP_Return"><p>Return to RSVP Page</p></Link>

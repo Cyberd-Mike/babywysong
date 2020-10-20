@@ -15,7 +15,7 @@ export default function createAppointment(data){
 
     ics.createEvent(event, (error, value) => {
         if (error) {
-            return
+            return error;
         }
         fileDownload(value, 'Wysong Baby Shower.ics');
     })

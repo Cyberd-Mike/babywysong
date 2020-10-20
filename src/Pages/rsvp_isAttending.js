@@ -36,7 +36,7 @@ export default function(props){
                     <p className="Signature">Bethany + Shaun</p>
                 </Grid>
                 <Grid item xs={12}>
-                    <Button className="calendarButton" color="primary" variant="filled" onClick={() => createicsEvent()}>Download Reminder</Button>
+                    <Button className="calendarButton" color="secondary" variant="filled" onClick={() => createicsEvent()}>Download Reminder</Button>
                 </Grid>
                 <Grid item xs={12}>
                     <Link to="/rsvp" className="RSVP_Return"><p>Return to RSVP Page</p></Link>

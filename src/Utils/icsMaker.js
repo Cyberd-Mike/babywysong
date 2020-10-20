@@ -2,6 +2,7 @@ const ics = require('ics');
 var fileDownload = require('js-file-download');
 
 export default function createAppointment(data){
+    console.log('User opted for download');
     const event = {
         start: data.start,
         end: data.end,
@@ -13,8 +14,11 @@ export default function createAppointment(data){
         organizer: { name: 'Bethany Pandes Wysong + Shaun Wysong'}
     }
 
+    console.log('Event params are ', event);
+
     ics.createEvent(event, (error, value) => {
         if (error) {
+            console.log('Error', error);
             return error;
         }
         fileDownload(value, 'Wysong Baby Shower.ics');

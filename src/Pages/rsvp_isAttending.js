@@ -21,9 +21,9 @@ export default function(props){
                 <Grid item xs={12}>
                     <p className="Signature">Bethany + Shaun</p>
                 </Grid>
-                <Grid item xs={12}>
+                {/* <Grid item xs={12}>
                     <Button className="calendarButton" color="secondary" variant="filled" onClick={() => createicsEvent()}>Download Reminder</Button>
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12}>
                     <Link to="/rsvp" className="RSVP_Return"><p>Return to RSVP Page</p></Link>
                 </Grid>

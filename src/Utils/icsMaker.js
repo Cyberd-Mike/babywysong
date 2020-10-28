@@ -4,8 +4,8 @@ var fileDownload = require('js-file-download');
 export default function createAppointment(){
     
     const event = {
-        start: [2020, 11, 8, 2, 00],
-        end: [2020, 11, 8, 4, 00],
+        start: [2020, 11, 08, 02, 00],
+        end: [2020, 11, 08, 04, 00],
         title: 'Wysong Baby Shower',
         description: 'Visit the Wysong Manor to greet Shaun and Bethany',
         location: '10415 Saranac Way Parker, CO 80134',

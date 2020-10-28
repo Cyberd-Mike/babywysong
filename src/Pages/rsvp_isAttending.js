@@ -5,10 +5,6 @@ import convertTime from '../Utils/ConvertTime';
 import createAppointment from '../Utils/icsMaker';
 
 export default function(props){
-    const createicsEvent = () => {
-        createAppointment(data);
-    }
-
     return(
             <Grid container style={{margin: '8% 0'}}>
                 <Grid item xs={12}>

@@ -20,7 +20,8 @@ export default function(){
                     <h1>COVID-19 Update!</h1>
                 </Grid>
                 <Grid item xs={8} container direction="column" justify="center" alignItems="center" className="COVID_Copy">
-                <p>"Due to the most recent executive order, our shower is going to look different than originally planned. Since we can't gather in groups larger than 5, we will be doing a drive-thru shower at our home. The parents-to-be will be out in front of the house to exchange hellos, gifts, and favors. Feel free to drop by anytime between 2-4pm. We are sad not to be able to celebrate the way we originally intended, but the most important thing is keeping everyone safe and healthy.</p>
+                <p>Due to the most recent executive order, our shower is going to look different than originally planned. Since we can't gather in groups larger than 5, we will be doing a drive-thru shower at our home. The parents-to-be will be out in front of the house to exchange hellos, gifts, and favors.</p>
+                <p>Feel free to drop by anytime between 2-4pm. We are sad not to be able to celebrate the way we originally intended, but the most important thing is keeping everyone safe and healthy.</p>
 
                 <p>Bethany + Shaun</p>
 

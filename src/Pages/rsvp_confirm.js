@@ -18,8 +18,6 @@ import {
 } from '@material-ui/core';
 
 export default function(props){
-    const [ boolAttend, setBoolAttend ] = useState(false);
-    const [ plusOneName, setPlusOneName ] = useState('');
     const { enqueueSnackbar } = useSnackbar();
     const { userData } = props.location.state;
     const { id, lastName, firstName, phoneNumber, timeStart, timeEnd, allowPlusOne } = userData;

@@ -33,7 +33,7 @@ export default function(){
                 lastName: lastName,
                 id: id
             }
-            navigate('/rsvp/confirm', {state: { userData: dataArray }});
+            navigate('/rsvp-confirm');
         }
         else
         {

@@ -19,9 +19,9 @@ export default function(){
         <Router>
             <Home path="/" />
             <RSVP path="rsvp" />
-            <Confirm path="rsvp/confirm" />
-            <NotAttending path="/respond-no" />
-            <Attending path="/respond-yes" />
+            {/* <Confirm path="rsvp/confirm" /> */}
+            {/* <NotAttending path="/respond-no" /> */}
+            <Attending path="/rsvp-confirm" />
             <Registry path="registry" />
             <Information path="info" />
             <AdminDashboard path="admin" />

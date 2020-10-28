@@ -26,13 +26,6 @@ export default function(){
         const userRegister = await API.graphql({ query: mutations.createGuest, variables: {input: input} });
 
         if (userRegister){
-            const { firstName, lastName} = userCheck.data.listGuests.items[0];
-
-            const dataArray = {
-                firstName: firstName,
-                lastName: lastName,
-                id: id
-            }
             navigate('/rsvp-confirm');
         }
         else

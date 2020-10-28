@@ -7,14 +7,6 @@ export const getGuest = /* GraphQL */ `
       id
       lastName
       firstName
-      altFirstName
-      altLastName
-      phoneNumber
-      allowPlusOne
-      plusOne
-      timeStart
-      timeEnd
-      isAttending
       createdAt
       updatedAt
     }
@@ -31,14 +23,6 @@ export const listGuests = /* GraphQL */ `
         id
         lastName
         firstName
-        altFirstName
-        altLastName
-        phoneNumber
-        allowPlusOne
-        plusOne
-        timeStart
-        timeEnd
-        isAttending
         createdAt
         updatedAt
       }

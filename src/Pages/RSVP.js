@@ -60,7 +60,7 @@ export default function(){
                         <TextField label="Last Name" variant="outlined" value={lastName} style={{margin: '10px'}} onChange={(e) => setLastName(e.target.value)} />
                     </Grid>
                     <Grid item xs={12}>
-                        <Button variant="outlined" color="primary" style={{margin: '25px', padding: '15px 25px', backgroundColor: '#2D5151', color: 'white'}} onClick={() => registerGuest()}>Check RSVP List</Button>
+                        <Button variant="outlined" color="primary" style={{margin: '25px', padding: '15px 25px', backgroundColor: '#2D5151', color: 'white'}} onClick={() => registerGuest()}>I'm Going!</Button>
                     </Grid>
                 </Grid>
             </Grid>

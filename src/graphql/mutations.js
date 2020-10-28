@@ -10,14 +10,6 @@ export const createGuest = /* GraphQL */ `
       id
       lastName
       firstName
-      altFirstName
-      altLastName
-      phoneNumber
-      allowPlusOne
-      plusOne
-      timeStart
-      timeEnd
-      isAttending
       createdAt
       updatedAt
     }
@@ -32,14 +24,6 @@ export const updateGuest = /* GraphQL */ `
       id
       lastName
       firstName
-      altFirstName
-      altLastName
-      phoneNumber
-      allowPlusOne
-      plusOne
-      timeStart
-      timeEnd
-      isAttending
       createdAt
       updatedAt
     }
@@ -54,14 +38,6 @@ export const deleteGuest = /* GraphQL */ `
       id
       lastName
       firstName
-      altFirstName
-      altLastName
-      phoneNumber
-      allowPlusOne
-      plusOne
-      timeStart
-      timeEnd
-      isAttending
       createdAt
       updatedAt
     }

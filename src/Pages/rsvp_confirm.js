@@ -37,12 +37,7 @@ export default function(props){
                 id: id,
                 firstName: firstName, 
                 lastName: lastName, 
-                phoneNumber: phoneNumber,
-                timeStart: timeStart,
-                timeEnd: timeEnd,
-                isAttending: boolAttend,
-                allowPlusOne: allowPlusOne,
-                plusOne: plusOneName
+                isAttending: boolAttend
             }
   
             const response = await API.graphql({ query: mutations.updateGuest, variables: { input: rsvpData }});
@@ -71,8 +66,7 @@ export default function(props){
                 })
 
                 if (data.data.updateGuest.isAttending === true){
-                    const { timeStart, timeEnd } = data.data.updateGuest;
-                    navigate('/respond-yes', { state: { start: timeStart, end: timeEnd }});
+                    navigate('/respond-yes');
                 } else {
                     navigate('/respond-no');
                 }
@@ -128,9 +122,6 @@ export default function(props){
                                 labelPlacement="Top"
                             />
                         </RadioGroup>
-                    </Grid>
-                    <Grid item xs={12}>
-                        { allowPlusOne && <TextField value={plusOneName} color="primary" variant='outlined' disabled={!allowPlusOne} onChange={(e) => setPlusOneName(e.target.value)} label="Additional Guest" />}
                     </Grid>
                     <Grid item xs={12}>
                         <SubmitButton />

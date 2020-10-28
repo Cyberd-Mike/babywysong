@@ -22,6 +22,9 @@ export default function(){
             </Helmet>
             <Grid container>
                 <HeaderBox />
+                <Grid item xs={12}>
+                    <h3 className="announcement">Plans have changed due to COVID. Please check the Information page.</h3>
+                </Grid>
                 <LinkBox />
                 <FluffBox />
                 <LocationBox /> 

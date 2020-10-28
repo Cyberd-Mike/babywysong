@@ -17,16 +17,10 @@ export default function(){
             </Helmet>
             <Grid container direction="column" alignItems="center">
                 <Grid item xs={12}>
-                    <h1>Let's Party! (Safely)</h1>
+                    <h1>COVID-19 Update!</h1>
                 </Grid>
                 <Grid item xs={8} container direction="column" justify="center" alignItems="center" className="COVID_Copy">
-                <p>In order to celebrate safely, we would appreciate it if all of our wonderful friends and family could follow a few rules. There are limited spaces per time slot in order to help facilitate proper social distancing guidelines. Please arrive during your designated time which is provided as part of the RSVP process on this website. We ask that all guests maintain a distance of at least 6 feet from individuals who do not live in the same household.</p>
-
-                <p>All guests are also required to wear a mask for the duration of your time at the venue. Masks may be taken off while consuming food or drink. We encourage everyone to practice social distancing during that time. </p>
-
-                <p>We would love nothing more than a big group hug with all of you wonderful people but for everyone’s safety, we’ll have to put that off for a while.</p>
-
-                <p>Thank you and we look forward to celebrating with you all!</p>
+                <p>"Due to the most recent executive order, our shower is going to look different than originally planned. Since we can't gather in groups larger than 5, we will be doing a drive-thru shower at our home. The parents-to-be will be out in front of the house to exchange hellos, gifts, and favors. Feel free to drop by anytime between 2-4pm. We are sad not to be able to celebrate the way we originally intended, but the most important thing is keeping everyone safe and healthy.</p>
 
                 <p>Bethany + Shaun</p>
 
@@ -36,7 +30,7 @@ export default function(){
                 </Grid>
                 <Grid item xs>
                     <Iframe
-                        url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.039342345855!2d-104.96667468434737!3d39.73876710451445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7ecaf8303c25%3A0x981cb324085b9f7b!2s1410%20N%20High%20St%2C%20Denver%2C%20CO%2080218!5e0!3m2!1sen!2sus!4v1602607389884!5m2!1sen!2sus"
+                        url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3077.429396974373!2d-104.804629684631!3d39.5273662794784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c8fd3b29f72bb%3A0x7b3e73bc5720feff!2s10415%20Saranac%20Way%2C%20Parker%2C%20CO%2080134!5e0!3m2!1sen!2sus!4v1603843816143!5m2!1sen!2sus"
                         width="600px"
                         height="450px"
                         id="google_map"

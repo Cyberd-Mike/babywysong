@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { API } from 'aws-amplify';
 import * as queries from '../graphql/queries';
+import * as mutations from '../graphql/mutations';
 import { Helmet } from 'react-helmet';
 import { useSnackbar } from 'notistack';
 import { navigate } from "@reach/router"
@@ -16,34 +17,21 @@ export default function(){
     const [ firstName, setFirstName ] = useState('');
     const [ lastName, setLastName ] = useState('');
     const { enqueueSnackbar } = useSnackbar();
-    const lookupGuest = async () => {
-        let filter = {
-            and: [{
-                or: [{ lastName: {eq: lastName}},
-                    {altLastName: {eq: lastName}}            
-                ],
-                or: [{ firstName: {eq: firstName}},
-                    { altFirstName: {eq: firstName}}
-                ]
-            }]
-        }
-        const userCheck = await API.graphql({ query: queries.listGuests, variables: {filter: filter} });
 
-        if (userCheck){
-            const { allowPlusOne, altFirstName, altLastName, firstName, lastName, isAttending, id, phoneNumber, plusOne, timeEnd, timeStart} = userCheck.data.listGuests.items[0];
+    const registerGuest = async () => {
+        let input = {
+            firstName: firstName,
+            lastName: lastName,
+        }
+        const userRegister = await API.graphql({ query: mutations.createGuest, variables: {input: input} });
+
+        if (userRegister){
+            const { firstName, lastName} = userCheck.data.listGuests.items[0];
 
             const dataArray = {
-                allowPlusOne: allowPlusOne,
-                altFirstName: altFirstName,
-                altLastName: altLastName,
                 firstName: firstName,
                 lastName: lastName,
-                isAttending: isAttending, 
-                id: id, 
-                phoneNumber: phoneNumber,
-                plusOne: plusOne, 
-                timeEnd: timeEnd,
-                timeStart: timeStart,
+                id: id
             }
             navigate('/rsvp/confirm', {state: { userData: dataArray }});
         }
@@ -79,7 +67,7 @@ export default function(){
                         <TextField label="Last Name" variant="outlined" value={lastName} style={{margin: '10px'}} onChange={(e) => setLastName(e.target.value)} />
                     </Grid>
                     <Grid item xs={12}>
-                        <Button variant="outlined" color="primary" style={{margin: '25px', padding: '15px 25px', backgroundColor: '#2D5151', color: 'white'}} onClick={() => lookupGuest()}>Check RSVP List</Button>
+                        <Button variant="outlined" color="primary" style={{margin: '25px', padding: '15px 25px', backgroundColor: '#2D5151', color: 'white'}} onClick={() => registerGuest()}>Check RSVP List</Button>
                     </Grid>
                 </Grid>
             </Grid>

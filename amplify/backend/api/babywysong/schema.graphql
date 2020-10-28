@@ -1,7 +1,7 @@
 type Guest @model
 @auth(rules: [ 
 	{ allow: groups, groups: ["admins"], operations: [ create, read, update, delete ] },
-	{ allow: public, operations: [read, update] }
+	{ allow: public, operations: [create, read] }
 	])
 {
 	id: ID!

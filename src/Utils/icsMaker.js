@@ -1,14 +1,14 @@
 const ics = require('ics');
 var fileDownload = require('js-file-download');
 
-export default function createAppointment(data){
+export default function createAppointment(){
     
     const event = {
-        start: data.start,
-        end: data.end,
+        start: [2020, 11, 8, 2, 00],
+        end: [2020, 11, 8, 4, 00],
         title: 'Wysong Baby Shower',
-        description: 'Baby Shower Time Slot',
-        location: '1410 N. High Street Denver, CO 80218',
+        description: 'Visit the Wysong Manor to greet Shaun and Bethany',
+        location: '10415 Saranac Way Parker, CO 80134',
         status: 'CONFIRMED',
         busyStatus: 'BUSY',
         organizer: { name: 'Bethany Pandes Wysong + Shaun Wysong'}

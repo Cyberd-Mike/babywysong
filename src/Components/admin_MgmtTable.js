@@ -98,31 +98,10 @@ export default function(){
             editable={{
                 onRowAdd: newData =>
                     new Promise ((resolve, reject) => {
-                    const { altLastName, altFirstName, allowPlusOne, plusOne, lastName, firstName, phoneNumber, isAttending, timeStart, timeEnd } = newData;
-                
-                    const strStart = timeStart.toString();
-                    const strEnd = timeEnd.toString();
-
-                    const propStart = strStart.split(' ');
-                    const propEnd = strEnd.split(' ');
-
-                    const StartStr = propStart[4];
-                    const EndStr = propEnd[4];
-
-                    const Start = StartStr.substring(0, StartStr.length - 3);
-                    const End = EndStr.substring(0, EndStr.length - 3);
-                    
+                    const { lastName, firstName, } = newData;                   
                     const guestDetails = {
                         lastName: lastName, 
-                        altLastName: altLastName,
-                        firstName: firstName,
-                        altFirstName: altFirstName,
-                        allowPlusOne: allowPlusOne,
-                        plusOne: plusOne,
-                        phoneNumber: phoneNumber, 
-                        timeStart: Start, 
-                        timeEnd: End,
-                        isAttending: isAttending
+                         firstName: firstName,
                     };
                     CreateGuest(guestDetails)
                     .then((data) => {
@@ -166,52 +145,14 @@ export default function(){
                 }),
                 onRowUpdate: (newData, oldData) =>
                     new Promise((resolve, reject) => {
-                        const { altLastName, altFirstName, allowPlusOne, plusOne, lastName, firstName, phoneNumber, isAttending, timeStart, timeEnd } = newData;
-                        var Start;
-                        var End;
-                        if (isAttending === null || isAttending === false){
-                            var Attending = false;
-                        } else {
-                            var Attending = true;
-                        }
+                        const { lastName, firstName } = newData;
 
-                        if (timeStart.toString().length > 9){
-                            const strStart = timeStart.toString();
-                            const propStart = strStart.split(' ');                            
-                            const StartStr = propStart[4];
-                            Start = StartStr.substring(0, StartStr.length - 3);
-                        }
-                        else
-                        {
-                            Start = timeStart;
-                        }
-                        
-                        
-                        if (timeEnd.toString().length > 9){
-                            const strEnd = timeEnd.toString();
-                            const propEnd = strEnd.split(' ');
-                            const EndStr = propEnd[4];
-                            End = EndStr.substring(0, EndStr.length - 3);
-                        }
-                        else
-                        {
-                            End = timeStart;
-                        }
-                        
                         const { id } = oldData; 
 
                         const guestDetails = {
                             id: id,
                             lastName: lastName,
-                            altLastName: altLastName,
                             firstName: firstName, 
-                            altFirstName: altFirstName,
-                            phoneNumber: phoneNumber,
-                            allowPlusOne: allowPlusOne,
-                            plusOne: plusOne,
-                            timeStart: Start, 
-                            timeEnd: End,
-                            isAttending: Attending
                         };
 
                         UpdateGuest(guestDetails)
@@ -307,15 +248,7 @@ export default function(){
             
             columns = {[
                 {title: 'Last Name', align: 'center', field: 'lastName', type: 'string'},
-                {title: 'Alt Last Name', align: 'center', field: 'altLastName', type: 'string'},
                 {title: 'First Name', align: 'center', field: 'firstName', type: 'string'},
-                {title: 'Alt First Name', align: 'center', field: 'altFirstName', type: 'string'},
-                {title: 'Phone Number', align: 'center', field: 'phoneNumber', type: 'numeric'},
-                {title: 'Time Start', align: 'center', field: 'timeStart', type: 'time'},
-                {title: 'Time End', align: 'center', field: 'timeEnd', type: 'time'},
-                {title: 'Attending?', align: 'center', field: 'isAttending', type: 'boolean'},
-                {title: 'Allow + 1?', align: 'center', field: 'allowPlusOne', type: 'boolean'},
-                {title: 'Plus One Name', align: 'center', field: 'plusOne', type: 'string'},
                 {title: 'dbIdentifier', align: 'center', field: 'id', type: 'string', hidden: true}
             ]}
         />
